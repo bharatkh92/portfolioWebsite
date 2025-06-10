@@ -26,7 +26,6 @@ const removeIframe = (event) => {
 
 
 const addIframe = (event) => {
-    console.log(`parent is ${event.target.parentElement.parentElement}`)
     let id = event.target.id;
     if(id === "colorCardPicker"){
         iframe.setAttribute("src", "https://brilliant-madeleine-28fb8e.netlify.app/");

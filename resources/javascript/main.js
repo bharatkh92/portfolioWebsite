@@ -46,3 +46,19 @@ colorCardPicker.addEventListener("click", addIframe);
 resturantLandingPage.addEventListener("click", addIframe);
 htmlCssResume.addEventListener("click", addIframe);
 
+/* dark mode functionality */
+let checkbox = document.getElementById("toggle");
+/* function applying dark mode */
+let root = document.querySelector(":root");
+
+const applyDarkMode = () => {
+    if(checkbox.checked) {
+        document.body.classList.toggle('darkModeCss');
+        root.style.setProperty("--border", "#fff");
+    } else {
+        document.body.classList.toggle('darkModeCss');
+        root.style.setProperty("--border", "#000");
+    }
+}
+
+checkbox.addEventListener("click", applyDarkMode);

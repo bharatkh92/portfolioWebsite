@@ -2,10 +2,16 @@ html {
     font-size: 16px;
 }
 
+:root {
+    --white: #fff;
+    --black: #000;
+    --border: #000;
+}
+
 body {
     font-family: Helvetica, sans-serif;
-    background-color: #FFFFFF;    
-    color: #000000;
+    background-color: var(--white);    
+    color: var(--black);
     padding: 3%;
 }
 
@@ -14,7 +20,7 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-content: center;
-    border-bottom: 3px solid #000000;
+    border-bottom: 3px solid var(--border);
 }
     
 header h1 {
@@ -41,13 +47,64 @@ nav li {
 
 nav a {
     text-decoration: none;
-    color: #000000;
+    color: var(--black);
     cursor: pointer;
 }
 
 nav li:hover, footer a:hover {
-    box-shadow: 1px 1px 3px #000000;
+    box-shadow: 1px 1px 3px var(--black);
 
+}
+
+.darkModeSec {
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+.darkModeSec p {
+    position: absolute;
+    top: -10px;
+    left: -120px
+}
+
+.darkMode input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.darkMode .slider {
+    position: absolute;
+    left: -30px;
+    background-color: #9d9d9d;
+    width: 64px;
+    height: 32px;
+    border-radius: 15px;
+}
+.darkMode .slider::before {
+    content: " ";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 30px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--white);
+}
+
+.darkMode input:checked + .slider {
+    background-color: #add8e6;
+}
+
+.darkMode input:checked + .slider::before {
+    transform: translateX(30px);
+}
+
+.darkModeCss {
+    color: var(--white);
+    background-color: #010101;
 }
 
 @media only screen and (max-width: 700px) {
@@ -82,6 +139,25 @@ nav li:hover, footer a:hover {
     body {
         font-size: 1rem;
     }
+
+    .darkModeSec {
+        top: 5px;
+    }
+
+    .darkModeSec p {
+        font-size: 0.9rem;
+    }
+
+    .darkMode .slider {
+        width: 59px;
+        height: 27px;
+    }
+
+    .darkMode .slider::before {
+        width: 25px;
+        height: 23px;
+    }
+
 }
 
 @media only screen and (max-width: 560px) {
@@ -99,14 +175,36 @@ nav li:hover, footer a:hover {
     nav li {
         padding-right: 3%;
     }
+
+    .darkModeSec {
+        right: 0;
+    }
+
+    .darkModeSec p {
+        font-size: 0.8rem;
+    }
+
+    .darkMode .slider {
+        width: 32px;
+        height: 16px;
+    }
+
+    .darkMode .slider::before {
+        width: 15px;
+        height: 14px;
+    }
+
+    .darkMode input:checked + .slider::before {
+        transform: translateX(15px);
+    }
 }
 
 .projects, .skills , .about, footer{
-    border-top: 1px solid #000000;
+    border-top: 1px solid var(--border);
 }
 
 .education h3, .projects h3, .skills h3, .about h3, footer h3 {
-    text-shadow: 1px 1px #cccccc;
+    text-shadow: 0px 0px 1px #000;
 }
 
 .viewButtons span, #close {
@@ -115,16 +213,17 @@ nav li:hover, footer a:hover {
     border: 1px solid #bfbfbf;
     border-radius: 3px;
     background-color: #f9f9f9;
+    color: var(--black);
 }
 
 .viewButtons span:hover, #close:hover {
     padding: 0.18% 0.7%;
     cursor: pointer;
-    box-shadow: inset 0px 0px 3px  #000000;
+    box-shadow: inset 0px 0px 3px  var(--black);
 }
 
 .newDiv {
-    box-shadow: 1px 1px 20px #000000;
+    box-shadow: 1px 1px 20px var(--black);
     padding: 1% 0;
 }
 
@@ -137,7 +236,7 @@ iframe {
     width: 10%;
     margin: 0 auto;
     text-align: center;
-    box-shadow: 1px 1px 10px #000000;
+    box-shadow: 1px 1px 10px var(--black);
 }
 
 .education .container p {
@@ -146,7 +245,7 @@ iframe {
 }
 
 a {
-    color: #000000;
+    color: var(--black);
     text-decoration: none;
 }
 
